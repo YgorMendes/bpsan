@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+
+  .anticon {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  span {
+    margin-left: 12px;
+  }
+}

@@ -1,95 +1,126 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+
+import Title from "@/components/title/title";
+import Item from "@/components/item/item";
+// import Button from "@/components/button/button";
+const Button = dynamic(() => import('@/components/button/button'), { ssr: false });
+import Question from "@/components/question/question";
+import App99 from "@/assets/app99";
+import AppUber from "@/assets/app-uber";
+import SectionCar from "./sections/car/section-car";
+import SectionMotorcycle from "./sections/motorcycle/section-motorcycle";
+import SectionTruck from "./sections/truck/section-truck";
+import SectionOldCar from "./sections/old-car/section-old-car";
+import SectionFleet from "./sections/fleet/section-fleet";
+import dynamic from "next/dynamic";
 
 export default function Home() {
+  const items = [
+    "100% da tabela FIPE.",
+    "Furto, Roubo e Colisão",
+    "Cobertura Nacional",
+    "Fenômenos naturais",
+    "Assistência 24h",
+    "Vidros e Faróis",
+    "Terceiros"
+  ];
+
+  const questions = [
+    {
+      question: 'Você sabe que é SUSEP?',
+      response: 'SUSEP é o Órgão regulador de seguros, ou seja uma Garantia de que você realmente vai ser indenizado caso precise.'
+    },
+    {
+      question: 'E qual a diferença da Bem Protege Seguros e outras seguradoras?',
+      response: 'SUSEP é o Órgão regulador de seguros, ou seja uma Garantia de que você realmente vai ser indenizado caso precise.'
+    }
+  ];
+
+  function sendMessageSpeed() {
+    window.open(
+      "https://api.whatsapp.com/send?phone=+5511983105012&text=Ol%C3%A1!%0A%0AGostaria+de+fazer+uma+cota%C3%A7%C3%A3o."
+    );
+  }
+
+  function sendMessageRacer() {
+    window.open(
+      "https://api.whatsapp.com/send?phone=+5511983105012&text=Ol%C3%A1!%0A%0AEstou+interessado+no+desconto+para+motorista+de+aplicativo."
+    );
+  }
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+    <main className="home">
+      <header className="header padding-df" />
+
+      <section className="section-presentation dark-blue padding-df">
+        <Title>
+          <i className="blue">BEM PROTEGE</i> Segura, Justa e sem Burocracia
+        </Title>
+        <p className="section-presentation_subtitle">
+          Já são <b>15 anos</b> de história,<b> 350 mil Clientes</b> em todo
+          Brasil, Oficinas credenciadas, atendimento 100% humanizado.
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <p className="section-presentation_show-coverage">Conheça nossas coberturas:</p>
+
+        <ul>
+          {items.map((item) => {
+            return <Item text={item} />
+          })}
+        </ul>
+
+        <Button onClick={() => sendMessageSpeed()}>COTAÇÃO RÁPIDA</Button>
+      </section>
+
+      <section className="section-susep padding-df">
+        <Title size="md">
+          Segurança da SUSEP e preço Justo.
+        </Title>
+        <p className="description">
+          Você já imaginou ter um seguro veicular <b>autorizado pela SUSEP</b>
+          e que realmente pensa no seu bolso?
+          <br />
+          <br />
+          A Bem Protege existe pra isso, unir o melhor dos dois mundos.
+        </p>
+
+        <ul className="questions">
+          {questions.map(({ question, response }) => {
+            return <Question key={question} question={question} response={response} />
+          })}
+        </ul>
+      </section>
+
+      <section className="section-app-racer padding-df">
+        <Title size="md">
+          Desconto especial pra motorista de aplicativo
+        </Title>
+        <p className="description">
+          Nós da Bem Protege pensamos no seu bolso.
+        </p>
+
+        <div className="section-app-racer_apps">
+          <App99 />
+          <AppUber />
+          <App99 />
+          <AppUber />
+          <App99 />
+          <AppUber />
+          <App99 />
+          <AppUber />
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <Button onClick={sendMessageRacer}>COTAÇÃO MOTORISTA APP</Button>
+      </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <SectionCar />
+      <SectionMotorcycle />
+      <SectionTruck />
+      <SectionOldCar />
+      <SectionFleet />
     </main>
-  )
+  );
 }
+
+// export default dynamic(() => Promise.resolve(Home), {
+//   ssr: false,
+// });
