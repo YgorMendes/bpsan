@@ -7,8 +7,11 @@
   font-family: inter, sans-serif;
 }
 
-$dark-blue: #00003b;
-
 .dark-blue {
-  background: #00003b;
+  background: linear-gradient(#00dbf9,#00a0dc);
+}
+
+
+body {
+  background: #f3fcff;
 }

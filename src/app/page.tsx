@@ -13,6 +13,7 @@ import SectionTruck from "./sections/truck/section-truck";
 import SectionOldCar from "./sections/old-car/section-old-car";
 import SectionFleet from "./sections/fleet/section-fleet";
 import dynamic from "next/dynamic";
+import Logo from "@/assets/logo";
 
 export default function Home() {
   const items = [
@@ -50,7 +51,9 @@ export default function Home() {
 
   return (
     <main className="home">
-      <header className="header padding-df" />
+      <header className="header">
+        <Logo />
+      </header>
 
       <section className="section-presentation dark-blue padding-df">
         <Title>
