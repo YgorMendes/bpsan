@@ -64,7 +64,7 @@ export default function Home() {
 
         <ul>
           {items.map((item) => {
-            return <Item text={item} />
+            return <Item key={item} text={item} />
           })}
         </ul>
 
