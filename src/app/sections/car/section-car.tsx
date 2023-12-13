@@ -1,7 +1,7 @@
 const Button = dynamic(() => import('@/components/button/button'), { ssr: false });
 import Title from '@/components/title/title'
 import React from 'react'
-import Car from '../../../assets/car.png'
+import Car from '../../../assets/onix-hb20.webp'
 import './styles.scss';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';

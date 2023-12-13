@@ -1,7 +1,7 @@
 // import Button from '@/components/button/button'
 import Title from '@/components/title/title'
 import React from 'react'
-import Motorcycle from '../../../assets/motorcycle.png'
+import Motorcycle from '../../../assets/fan.jpg'
 import './styles.scss';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';

@@ -1,7 +1,7 @@
 // import Button from '@/components/button/button'
 import Title from '@/components/title/title'
 import React from 'react'
-import Fleet from '../../../assets/fleet.png'
+import Fleet from '../../../assets/truck-fleet.jpg'
 import './styles.scss';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';

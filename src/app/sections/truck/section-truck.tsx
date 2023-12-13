@@ -1,11 +1,15 @@
 // import Button from '@/components/button/button'
 import Title from '@/components/title/title'
 import React from 'react'
-import Truck from '../../../assets/truck.png'
+import Truck from '../../../assets/scania.webp'
+import Bongo from '../../../assets/bongo.jpg'
+import Hr from '../../../assets/hr.jpg'
+import Master from '../../../assets/renault-master.jpeg'
 import './styles.scss';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 const Button = dynamic(() => import('@/components/button/button'), { ssr: false });
+import { Carousel } from 'antd';
 
 function SectionTruck() {
   function sendMessage() {
@@ -16,7 +20,21 @@ function SectionTruck() {
 
   return (
     <section className="section-truck padding-df">
-      <Image src={Truck} alt="Caminhão branco" />
+      <Carousel autoplay>
+        <div>
+          <Image src={Truck} alt="Caminhão Pesado" />
+        </div>
+        <div>
+          <Image src={Master} alt="Vã" />
+        </div>
+        <div>
+          <Image src={Bongo} alt="Carro antigo Kadett 76" />
+        </div>
+        <div>
+          <Image src={Hr} alt="Carro antigo Kombi" />
+        </div>
+      </Carousel>
+
       <Title size="md">
         Proteção para Caminhão e Vans
       </Title>
