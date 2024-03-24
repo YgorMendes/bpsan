@@ -12,8 +12,11 @@ import SectionMotorcycle from "./sections/motorcycle/section-motorcycle";
 import SectionTruck from "./sections/truck/section-truck";
 import SectionOldCar from "./sections/old-car/section-old-car";
 import SectionFleet from "./sections/fleet/section-fleet";
+import SectionClients from "./sections/clients/clients";
 import dynamic from "next/dynamic";
 import Logo from "@/assets/logo";
+import { Dropdown, Menu } from "antd";
+import { QuestionCircleOutlined } from "@ant-design/icons";
 
 export default function Home() {
   const items = [
@@ -49,10 +52,40 @@ export default function Home() {
     );
   }
 
+  function sendMessageHelp() {
+    window.open(
+      "https://api.whatsapp.com/send?phone=+5511983105012&text=Ol%C3%A1%2C+quero+tirar+uma+d%C3%BAvida."
+    );
+  }
+
+  const HelpMenu = (
+    <Menu title='Ajuda e suporte'>
+      <Menu.Item className='helpMenu-title'>
+        <b>Ajuda e suporte</b>
+      </Menu.Item>
+      <Menu.Item
+        onClick={sendMessageHelp}
+      >
+        Whatsapp
+      </Menu.Item>
+      <Menu.Item
+      >
+        0800 042 0800
+      </Menu.Item>
+      <Menu.Item
+      >
+        0800 944 5000
+      </Menu.Item>
+    </Menu>
+  )
+
   return (
     <main className="home">
       <header className="header">
         <Logo />
+        <Dropdown overlay={HelpMenu} trigger={['click']}>
+          <QuestionCircleOutlined />
+        </Dropdown>
       </header>
 
       <section className="section-presentation dark-blue padding-df">
@@ -120,6 +153,7 @@ export default function Home() {
       <SectionTruck />
       <SectionOldCar />
       <SectionFleet />
+      <SectionClients />
     </main>
   );
 }

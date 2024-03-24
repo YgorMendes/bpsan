@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,600&display=swap");
 
 .padding-df {
   padding: 44px 29px;
@@ -17,7 +17,7 @@
   height: 64px;
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   padding: 0 29px;
   position: sticky;
@@ -26,7 +26,11 @@
   background-color: #def6ff;
   box-shadow: 0px 4px 4px 0px #00000020;
 
-
+  .anticon {
+    width: 44px;
+    height: 44px;
+    transform: scale(1.4);
+  }
   svg {
     width: 120px;
   }
@@ -65,12 +69,12 @@
 
   .questions {
     margin-top: 44px;
-    border-top: 1px solid #D9D9D9;
+    border-top: 1px solid #d9d9d9;
   }
 }
 
 .section-app-racer {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
 
   .title {
     margin-bottom: 12px;

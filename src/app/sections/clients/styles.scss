@@ -1,0 +1,23 @@
+.section-clients {
+  background-color: #114881;
+
+  img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+
+  .slick-dots-bottom {
+    margin-bottom: 12px;
+  }
+
+  .title {
+    margin-bottom: 12px;
+    color: white !important;
+  }
+
+  .description {
+    color: rgb(220, 220, 220);
+  }
+}
