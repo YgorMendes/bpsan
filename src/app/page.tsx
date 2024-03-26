@@ -36,7 +36,7 @@ export default function Home() {
     },
     {
       question: 'E qual a diferença da Bem Protege Seguros e outras seguradoras?',
-      response: 'SUSEP é o Órgão regulador de seguros, ou seja uma Garantia de que você realmente vai ser indenizado caso precise.'
+      response: 'Nós da Bem Protege te proporcionamos a segurança de uma asseguradora com SUSEP, e sem análise de perfil e condutor.'
     }
   ];
 
@@ -90,7 +90,8 @@ export default function Home() {
 
       <section className="section-presentation dark-blue padding-df">
         <Title>
-          <i className="blue">BEM PROTEGE</i> Segura, Justa e sem Burocracia
+          <i className="blue">BPseguradora</i> <br />
+          A segurança que você precisa, sem burocracia
         </Title>
         <p className="section-presentation_subtitle">
           Já são <b>15 anos</b> de história,<b> 350 mil Clientes</b> em todo
@@ -120,8 +121,9 @@ export default function Home() {
         </p>
 
         <ul className="questions">
-          {questions.map(({ question, response }) => {
-            return <Question key={question} question={question} response={response} />
+          {questions.map(({ question, response }, index) => {
+            console.log({ index })
+            return <Question className={`${index == 1 ? 'isLargeQuestion' : ''}`} key={question} question={question} response={response} />
           })}
         </ul>
       </section>
@@ -157,7 +159,3 @@ export default function Home() {
     </main>
   );
 }
-
-// export default dynamic(() => Promise.resolve(Home), {
-//   ssr: false,
-// });

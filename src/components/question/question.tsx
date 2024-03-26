@@ -1,15 +1,15 @@
 'use client'
 
-import React, { useEffect, useLayoutEffect, useReducer, useRef, useState } from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import { CaretDownOutlined, CheckCircleOutlined } from "@ant-design/icons";
 
-interface IQuestion {
+interface IQuestion extends React.LiHTMLAttributes<HTMLLIElement> {
   question: string;
   response: string;
 }
 
-function Question({ question, response }: IQuestion) {
+function Question({ question, response, className, ...rest }: IQuestion) {
   const [isOpen, setIsOpen] = useState(false);
   // const [maxHeight, setMaxHeight] = useState(false);
   // const questionRef = useRef<any>();
@@ -22,7 +22,7 @@ function Question({ question, response }: IQuestion) {
   // }, [questionRef])
 
   return (
-    <li className={`question-container ${isOpen ? 'isOpen' : null}`}
+    <li {...rest} className={`${className} question-container ${isOpen ? 'isOpen' : null}`}
       onClick={() => setIsOpen((currentValur) => !currentValur)}>
       <div className={`question`}>
         <dt>{question}</dt>
